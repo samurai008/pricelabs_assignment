@@ -148,7 +148,7 @@ async function fetchListings({ arrivalDate, departureDate, address, server }) {
         yearlyPrices.push(...monthlyPrices);
 
         // break after first month
-        if (curr_month === 0) break;
+        // if (curr_month === 0) break;
       }
 
       // find top 3 prices for listings
@@ -189,7 +189,7 @@ async function fetchListings({ arrivalDate, departureDate, address, server }) {
     }
 
     // break after first listing
-    if (br_idx === 0) break;
+    // if (br_idx === 0) break;
     // } catch (err) {
     //   console.error('cannot fetch details for listing', listing.listingId);
     // }
