@@ -138,7 +138,7 @@ async function fetchListings({ arrivalDate, departureDate, address, server }) {
             monthlyPrices.push(amt);
             console.log([date[0][0], date[0][1], i], amt);
           } catch (err) {
-            console.error('err! cannot fetch data', err.message);
+            console.error('err! cannot fetch data', err.response.data.errors);
             // insert 0 if prices not available for the date
             monthlyPrices.push(0);
           }
