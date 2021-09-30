@@ -128,15 +128,13 @@ async function fetchListings({ arrivalDate, departureDate, address, server }) {
               listingId,
               unitId,
             });
-            // const amt = priceData.data.priceDetails.totals[0].amount;
-            // monthlyPrices.push(
-            //   parseFloat(amt.slice(1, amt.length).split(',').join(''))
-            // );
-            // console.log(
-            //   parseFloat(amt.slice(1, amt.length).split(',').join(''))
-            // );
-            const amt =
-              priceData.data.priceDetails.totalNumeric.totalInCents / 100;
+
+            const amt = priceData.data.priceDetails.averageNightlies
+              .filter((item) => item.type === 'TOTAL_RENT')
+              .pop().perNightCost.amount;
+
+            // const amt =
+            //   priceData.data.priceDetails.totalNumeric.totalInCents / 100;
             monthlyPrices.push(amt);
             console.log([date[0][0], date[0][1], i], amt);
           } catch (err) {
